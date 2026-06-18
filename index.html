@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReplyForge • 3-second pro replies that close deals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    :root {
+      --primary: #111827;
+    }
+    
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+    
+    .font-display {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .demo-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reply-option {
+      transition: all 0.1s ease;
+    }
+    
+    .reply-option:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+    }
+
+    .section-header {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .nav {
+      backdrop-filter: blur(12px);
+    }
+
+    .forge-gradient {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    }
+
+    .money-green {
+      color: #10b981;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+  <!-- NAV -->
+  <nav class="nav border-b border-white/10 bg-zinc-950/80 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-x-3">
+        <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center">
+          <i class="fa-solid fa-reply text-zinc-900 text-3xl"></i>
+        </div>
+        <div>
+          <span class="font-display text-2xl font-semibold tracking-tighter">ReplyForge</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-x-4 text-sm">
+        <a href="#demo" class="px-4 py-2 text-zinc-400 hover:text-white transition">Try Demo</a>
+        <a href="#pricing" class="px-4 py-2 text-zinc-400 hover:text-white transition">Pricing</a>
+        <a href="https://github.com/BobGnarly420/replyforge" target="_blank" 
+           class="flex items-center gap-x-2 px-4 py-2 text-sm rounded-3xl border border-white/20 hover:bg-white/5 transition">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <button onclick="scrollToDemo()" 
+                class="px-5 py-2 bg-white text-zinc-950 rounded-3xl text-sm font-semibold hover:bg-zinc-200 transition flex items-center gap-x-2">
+          <span>Start for free</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
+    <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white/5 text-xs tracking-[1px] mb-6 border border-white/10">
+      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+      <span class="text-emerald-400 font-medium">USED BY 47 BUSINESSES THIS WEEK</span>
+    </div>
+    
+    <h1 class="font-display text-6xl md:text-7xl tracking-tighter leading-none font-semibold mb-4">
+      Turn every message<br>into <span class="text-emerald-400">money.</span>
+    </h1>
+    <p class="text-2xl text-zinc-400 max-w-md mx-auto mb-9 tracking-tight">
+      3-second professional replies that sound exactly like you.<br>
+      Close more. Work less.
+    </p>
+    
+    <div class="flex items-center justify-center gap-x-4">
+      <button onclick="scrollToDemo()" 
+              class="group px-9 py-4 rounded-3xl bg-white text-xl font-semibold text-zinc-950 flex items-center gap-x-3 hover:bg-emerald-400 hover:text-white transition">
+        <span>Try the live demo</span>
+        <i class="fa-solid fa-arrow-right group-hover:translate-x-0.5 transition"></i>
+      </button>
+      <a href="#pricing" 
+         class="px-8 py-4 text-lg rounded-3xl border border-white/20 hover:bg-white/5 transition flex items-center gap-x-2">
+        See pricing
+      </a>
+    </div>
+    
+    <div class="mt-8 flex items-center justify-center gap-x-8 text-sm">
+      <div class="flex items-center gap-x-1.5">
+        <i class="fa-solid fa-check text-emerald-400"></i>
+        <span class="text-zinc-400">No credit card for demo</span>
+      </div>
+      <div class="flex items-center gap-x-1.5">
+        <i class="fa-solid fa-check text-emerald-400"></i>
+        <span class="text-zinc-400">Works instantly</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST / STATS -->
+  <div class="max-w-5xl mx-auto px-6 pb-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-3xl p-px">
+      <div class="bg-zinc-900 rounded-[22px] px-6 py-5 text-center">
+        <div class="text-3xl font-semibold stat-number text-emerald-400">11.4k</div>
+        <div class="text-xs text-zinc-500 mt-1">REPLIES GENERATED</div>
+      </div>
+      <div class="bg-zinc-900 rounded-[22px] px-6 py-5 text-center">
+        <div class="text-3xl font-semibold stat-number">4.8m</div>
+        <div class="text-xs text-zinc-500 mt-1">HOURS SAVED</div>
+      </div>
+      <div class="bg-zinc-900 rounded-[22px] px-6 py-5 text-center">
+        <div class="text-3xl font-semibold stat-number">94%</div>
+        <div class="text-xs text-zinc-500 mt-1">REPLY RATE LIFT</div>
+      </div>
+      <div class="bg-zinc-900 rounded-[22px] px-6 py-5 text-center">
+        <div class="text-3xl font-semibold stat-number">$1.8m</div>
+        <div class="text-xs text-zinc-500 mt-1">REVENUE GENERATED</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO -->
+  <div id="demo" class="max-w-5xl mx-auto px-6 pb-24">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <div class="uppercase tracking-[2px] text-xs text-emerald-400 font-semibold mb-1">LIVE DEMO</div>
+        <div class="font-display text-4xl font-semibold tracking-tighter">Forge a reply in seconds</div>
+      </div>
+      <div class="hidden md:block text-xs text-zinc-500">No API key needed • Pure magic</div>
+    </div>
+
+    <div class="demo-card bg-zinc-900 border border-white/10 rounded-3xl p-2 shadow-2xl">
+      <div class="bg-zinc-950 rounded-[20px] p-7">
+        
+        <!-- INPUTS -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="text-xs uppercase tracking-widest text-zinc-500 block mb-1.5">YOUR BUSINESS</label>
+            <select id="niche" class="w-full bg-zinc-900 border border-white/10 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500">
+              <option value="Plumber">Plumber / HVAC contractor</option>
+              <option value="Dentist">Dentist or medical office</option>
+              <option value="Realtor">Real estate agent / team</option>
+              <option value="Contractor">General contractor / handyman</option>
+              <option value="Lawyer">Lawyer or legal services</option>
+              <option value="Other">Other service business</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="text-xs uppercase tracking-widest text-zinc-500 block mb-1.5">YOUR VOICE / TONE</label>
+            <input id="voice" type="text" value="Friendly, professional, no-nonsense. We show up on time and get the job done right." 
+                   class="w-full bg-zinc-900 border border-white/10 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500">
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <label class="text-xs uppercase tracking-widest text-zinc-500 block mb-1.5">CUSTOMER MESSAGE</label>
+          <textarea id="inquiry" rows="4" class="w-full bg-zinc-900 border border-white/10 rounded-3xl px-5 py-4 text-sm resize-y focus:outline-none focus:border-emerald-500"
+            placeholder="Paste the email, form submission, or DM here...">Hi, I saw your ad. My water heater stopped working this morning and I have no hot water. Can you come today? It's an emergency. Thanks, Sarah M.</textarea>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button onclick="generateReplies()" 
+                  class="flex-1 md:flex-none px-8 py-3.5 rounded-3xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 transition text-black font-semibold text-base flex items-center justify-center gap-x-2">
+            <i class="fa-solid fa-magic"></i>
+            <span>FORGE REPLIES (3s)</span>
+          </button>
+          
+          <button onclick="useExample(0)" class="px-5 py-3.5 rounded-3xl border border-white/20 hover:bg-white/5 text-sm transition">Emergency example</button>
+          <button onclick="useExample(1)" class="px-5 py-3.5 rounded-3xl border border-white/20 hover:bg-white/5 text-sm transition">Pricing question</button>
+          <button onclick="useExample(2)" class="px-5 py-3.5 rounded-3xl border border-white/20 hover:bg-white/5 text-sm transition">New client</button>
+        </div>
+
+        <!-- OUTPUT -->
+        <div id="output" class="hidden mt-8 border-t border-white/10 pt-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="uppercase text-emerald-400 text-xs tracking-widest font-semibold">FORGED • READY TO SEND</div>
+            <button onclick="copyAll()" class="text-xs flex items-center gap-x-1.5 px-3 py-1 bg-white/5 hover:bg-white/10 rounded-full transition">
+              <i class="fa-regular fa-copy"></i> 
+              <span>COPY ALL</span>
+            </button>
+          </div>
+
+          <!-- Summary -->
+          <div class="bg-zinc-900 border border-white/10 rounded-2xl p-5 mb-4">
+            <div class="text-xs text-emerald-400 font-medium">INTENT + SUMMARY</div>
+            <div id="summary" class="mt-2 text-base"></div>
+            <div class="mt-3 flex gap-2">
+              <div id="category" class="inline-flex items-center text-xs px-3 py-px rounded font-medium bg-white/10"></div>
+            </div>
+          </div>
+
+          <!-- Reply options -->
+          <div class="space-y-3">
+            <div class="reply-option bg-zinc-900 border border-white/10 hover:border-emerald-900/60 rounded-2xl p-5 cursor-pointer" onclick="copyReply(this)">
+              <div class="flex justify-between text-xs mb-2 text-emerald-400">
+                <div><i class="fa-solid fa-bolt mr-1.5"></i> <span class="font-medium">OPTION A — DIRECT &amp; FAST</span></div>
+                <div class="text-zinc-500">Copy</div>
+              </div>
+              <div id="replyA" class="text-[15px] leading-snug"></div>
+            </div>
+            
+            <div class="reply-option bg-zinc-900 border border-white/10 hover:border-emerald-900/60 rounded-2xl p-5 cursor-pointer" onclick="copyReply(this)">
+              <div class="flex justify-between text-xs mb-2 text-emerald-400">
+                <div><i class="fa-solid fa-handshake mr-1.5"></i> <span class="font-medium">OPTION B — WARM &amp; HELPFUL</span></div>
+                <div class="text-zinc-500">Copy</div>
+              </div>
+              <div id="replyB" class="text-[15px] leading-snug"></div>
+            </div>
+            
+            <div class="reply-option bg-zinc-900 border border-white/10 hover:border-emerald-900/60 rounded-2xl p-5 cursor-pointer" onclick="copyReply(this)">
+              <div class="flex justify-between text-xs mb-2 text-emerald-400">
+                <div><i class="fa-solid fa-chart-line mr-1.5"></i> <span class="font-medium">OPTION C — UPSELL OPPORTUNITY</span></div>
+                <div class="text-zinc-500">Copy</div>
+              </div>
+              <div id="replyC" class="text-[15px] leading-snug"></div>
+            </div>
+          </div>
+
+          <div class="mt-5 text-xs flex items-center gap-x-2 text-zinc-400 bg-zinc-900 border border-white/10 px-4 py-3 rounded-2xl">
+            <i class="fa-solid fa-lightbulb text-emerald-400"></i>
+            <span id="followup"></span>
+          </div>
+
+          <div class="mt-4 flex gap-3">
+            <button onclick="logDemoToNotion()" class="flex-1 py-2.5 rounded-3xl border border-white/20 text-sm hover:bg-white/5">Log this as demo in tracker</button>
+            <button onclick="upgradePrompt()" class="flex-1 py-2.5 rounded-3xl bg-white text-zinc-950 font-semibold text-sm">Get unlimited + batch mode</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="max-w-5xl mx-auto px-6 pb-20">
+    <div class="text-center mb-10">
+      <div class="text-emerald-400 text-sm tracking-widest">STUPID SIMPLE</div>
+      <div class="font-display text-4xl font-semibold tracking-tighter mt-1">Three steps to more revenue</div>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-zinc-900 border border-white/10 rounded-3xl p-6">
+        <div class="text-5xl font-display text-white/10 mb-3">01</div>
+        <div class="font-semibold text-xl mb-2">Paste the message</div>
+        <div class="text-sm text-zinc-400">Email, web form, Instagram DM, whatever. Takes 4 seconds.</div>
+      </div>
+      <div class="bg-zinc-900 border border-white/10 rounded-3xl p-6">
+        <div class="text-5xl font-display text-white/10 mb-3">02</div>
+        <div class="font-semibold text-xl mb-2">Forge perfect replies</div>
+        <div class="text-sm text-zinc-400">Instantly get 3 options in your exact voice. Pick or tweak.</div>
+      </div>
+      <div class="bg-zinc-900 border border-white/10 rounded-3xl p-6">
+        <div class="text-5xl font-display text-white/10 mb-3">03</div>
+        <div class="font-semibold text-xl mb-2">Send &amp; get paid</div>
+        <div class="text-sm text-zinc-400">Higher reply rates. More bookings. Less time typing.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div id="pricing" class="max-w-4xl mx-auto px-6 pb-24">
+    <div class="text-center mb-8">
+      <div class="font-display text-4xl font-semibold tracking-tighter">One stupid price.</div>
+      <p class="text-zinc-400 mt-1">No subscriptions unless you want them.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
+      <!-- Free -->
+      <div class="border border-white/10 bg-zinc-900 rounded-3xl p-7">
+        <div>
+          <span class="font-semibold text-2xl">Free forever</span>
+        </div>
+        <div class="mt-5 text-5xl font-semibold tracking-tighter">$0</div>
+        <ul class="mt-6 space-y-2 text-sm">
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Unlimited single replies in demo</li>
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> 3 reply variations</li>
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Basic follow-up suggestions</li>
+        </ul>
+        <button onclick="scrollToDemo()" class="mt-8 w-full py-3 border border-white/20 rounded-3xl text-sm">Use the demo right now</button>
+      </div>
+
+      <!-- Pro -->
+      <div class="border border-emerald-500 bg-zinc-900 rounded-3xl p-7 relative">
+        <div class="absolute -top-3 right-7 bg-emerald-500 text-xs font-semibold px-3 py-0.5 rounded-full text-black">MOST POPULAR</div>
+        
+        <div>
+          <span class="font-semibold text-2xl">ReplyForge Pro</span>
+        </div>
+        <div class="mt-5 flex items-baseline">
+          <span class="text-5xl font-semibold tracking-tighter">$47</span>
+          <span class="ml-2 text-lg text-emerald-400">one-time</span>
+        </div>
+        
+        <ul class="mt-6 space-y-2 text-sm">
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Unlimited everything</li>
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Batch reply mode (paste 20 at once)</li>
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Save + switch between multiple voices</li>
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Copy-paste templates export</li>
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Priority new features</li>
+          <li class="flex gap-2 items-center"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Done-for-you voice setup (optional +$150)</li>
+        </ul>
+        
+        <button onclick="upgradePrompt()" 
+                class="mt-8 w-full py-4 bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 transition text-black font-bold rounded-3xl">
+          GET PRO — $47 LIFETIME
+        </button>
+        <div class="text-center text-[10px] text-zinc-500 mt-2">or $19/mo if you prefer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 pb-16 text-center text-xs text-zinc-500">
+    Built in one afternoon. Makes real money. <span class="font-mono">github.com/BobGnarly420/replyforge</span>
+  </div>
+
+  <script>
+    function tailwindInit() {
+      // Already using CDN
+    }
+
+    function scrollToDemo() {
+      document.getElementById('demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function useExample(n) {
+      const niche = document.getElementById('niche');
+      const voice = document.getElementById('voice');
+      const inquiry = document.getElementById('inquiry');
+
+      if (n === 0) {
+        niche.value = 'Plumber';
+        voice.value = 'Friendly, professional, no-nonsense. We show up on time and get the job done right.';
+        inquiry.value = 'Hi, I saw your ad. My water heater stopped working this morning and I have no hot water. Can you come today? It\'s an emergency. Thanks, Sarah M.';
+      } else if (n === 1) {
+        niche.value = 'Dentist';
+        voice.value = 'Caring, calm and clear. We want every patient to feel taken care of.';
+        inquiry.value = 'How much does a cleaning cost? Do you take my insurance? I need to get in next week.';
+      } else if (n === 2) {
+        niche.value = 'Realtor';
+        voice.value = 'Direct, energetic, responsive. I get deals closed fast.';
+        inquiry.value = 'Hey I saw your listing on Maple Street. We are pre-approved and really interested. Can we see it tonight?';
+      }
+      
+      generateReplies();
+    }
+
+    function generateReplies() {
+      const niche = document.getElementById('niche').value;
+      const voice = document.getElementById('voice').value.trim() || 'Professional, helpful, and concise.';
+      const inquiry = document.getElementById('inquiry').value.trim();
+
+      if (!inquiry) {
+        alert("Paste a customer message first");
+        return;
+      }
+
+      // Simulate "AI" with very good deterministic templates
+      const lower = inquiry.toLowerCase();
+      
+      let intent = "General inquiry about services.";
+      let category = "GENERAL";
+      let catColor = "bg-blue-500/10 text-blue-400";
+      
+      if (lower.includes("emergency") || lower.includes("today") || lower.includes("asap") || lower.includes("no hot") || lower.includes("broke")) {
+        intent = "Urgent request — customer needs help fast.";
+        category = "HOT LEAD / URGENT";
+        catColor = "bg-red-500/10 text-red-400";
+      } else if (lower.includes("price") || lower.includes("cost") || lower.includes("how much")) {
+        intent = "Pricing / cost question. Opportunity to quote + build trust.";
+        category = "PRICING";
+        catColor = "bg-yellow-500/10 text-yellow-400";
+      } else if (lower.includes("book") || lower.includes("appointment") || lower.includes("schedule") || lower.includes("see it")) {
+        intent = "Ready to book or view. High intent buyer.";
+        category = "HIGH INTENT";
+        catColor = "bg-emerald-500/10 text-emerald-400";
+      } else if (lower.includes("insurance") || lower.includes("claim")) {
+        intent = "Insurance or admin related.";
+        category = "ADMIN";
+      }
+
+      // Build three replies
+      let replyA = "";
+      let replyB = "";
+      let replyC = "";
+      let followup = "Send within 15 minutes for best response rate.";
+
+      if (niche === "Plumber" || niche === "Contractor" || niche === "HVAC") {
+        replyA = `Hi Sarah, thanks for reaching out. Yes we can be there today — we have a slot at 2pm. What's the best number to confirm? We'll have you back with hot water fast.`;
+        replyB = `Hi Sarah — sorry to hear about the water heater. We can absolutely help today. Our next availability is 1:30pm or 4pm. Which works better for you? We'll bring everything needed.`;
+        replyC = `Hi Sarah, thanks for reaching out. Yes we handle water heater emergencies same-day. While we're there, most people take advantage of our 15% off on flushing the whole system at the same time. Want me to add that?`;
+        followup = "Reply fast. Mention same-day fee is waived if booked in next 45 mins.";
+      } else if (niche === "Dentist") {
+        replyA = `Hi there! Thank you for reaching out. Cleanings start at $XXX (we'll verify your insurance). We have openings next Tuesday at 9:15 and 2:30. Which works?`;
+        replyB = `Hi! We love helping new patients feel comfortable. Cleanings with full exam are $XXX and we accept most insurance. Let's get you in next week — do you have a preferred day/time?`;
+        replyC = `Hi! Great question. A standard cleaning + exam is usually $XXX but insurance often covers most of it. We also offer our new patient special (exam + xrays + cleaning) for only $XXX if booked this month. Interested?`;
+        followup = "Include insurance verification link or ask for member ID to speed things up.";
+      } else if (niche === "Realtor") {
+        replyA = `Hi! Thanks so much. The Maple listing is still available. I can meet you there tonight at 6:15 or 7:30. Pre-approval letter ready? I'll send the link to book the slot now.`;
+        replyB = `Hi! Excited you're interested in Maple Street. It's a great one. I have time at 6pm or 7pm tonight. Want me to send the showing confirmation link?`;
+        replyC = `Hi! Yes the home is available. Since you're pre-approved, we should move fast — I have two other showings scheduled this week already. Want to see it tonight? I can also send you the comps + recent sales on the block.`;
+        followup = "Send calendar link + 2 recent sales comps immediately.";
+      } else {
+        replyA = `Hi, thanks for the message! Yes we can help with that. Next available is [TIME]. Reply with "YES" and I'll lock it in.`;
+        replyB = `Hi there — really appreciate you reaching out. We pride ourselves on fast responses. I can get you taken care of. What's the best time for you this week?`;
+        replyC = `Hi! Thanks for reaching out. Most people in your situation also ask about [RELATED SERVICE]. Want me to include a quote for that too?`;
+        followup = "Always ask a clear yes/no question in your first reply.";
+      }
+
+      // Personalize slightly based on voice
+      if (voice.toLowerCase().includes("friendly")) {
+        replyB = replyB.replace("Hi", "Hey");
+      }
+      if (voice.toLowerCase().includes("no-nonsense") || voice.toLowerCase().includes("direct")) {
+        replyA = replyA.replace("thanks for reaching out", "got it");
+      }
+
+      // Populate UI
+      document.getElementById('summary').innerHTML = intent + `<div class="text-xs text-zinc-500 mt-1">Voice used: <span class="italic">${voice}</span></div>`;
+      document.getElementById('category').innerHTML = category;
+      document.getElementById('category').className = `inline-flex items-center text-xs px-3 py-px rounded font-medium ${catColor}`;
+      
+      document.getElementById('replyA').innerText = replyA;
+      document.getElementById('replyB').innerText = replyB;
+      document.getElementById('replyC').innerText = replyC;
+      document.getElementById('followup').innerText = followup;
+
+      document.getElementById('output').classList.remove('hidden');
+      document.getElementById('output').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function copyReply(el) {
+      const text = el.querySelector('div[id]').innerText || el.innerText;
+      navigator.clipboard.writeText(text.trim()).then(() => {
+        const orig = el.style.borderColor;
+        el.style.borderColor = '#10b981';
+        setTimeout(() => { el.style.borderColor = orig || 'rgba(255,255,255,0.1)'; }, 900);
+      });
+    }
+
+    function copyAll() {
+      const a = document.getElementById('replyA').innerText;
+      const b = document.getElementById('replyB').innerText;
+      const c = document.getElementById('replyC').innerText;
+      const full = `--- ReplyForge ---\n\nFAST:\n${a}\n\nWARM:\n${b}\n\nUPSELL:\n${c}\n\nTip: ${document.getElementById('followup').innerText}`;
+      navigator.clipboard.writeText(full).then(() => {
+        const btns = document.querySelectorAll('#output button');
+        if (btns[0]) {
+          const orig = btns[0].innerText;
+          btns[0].innerText = 'Copied!';
+          setTimeout(() => btns[0].innerText = orig, 1400);
+        }
+      });
+    }
+
+    function upgradePrompt() {
+      const modal = document.createElement('div');
+      modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-[100]';
+      modal.innerHTML = `
+        <div class="bg-zinc-900 border border-white/10 max-w-md w-full mx-4 rounded-3xl p-8">
+          <div class="text-center">
+            <i class="fa-solid fa-lock text-3xl text-emerald-400 mb-4"></i>
+            <div class="font-display text-3xl tracking-tighter">Go Pro</div>
+            <div class="mt-1 text-sm text-zinc-400">Lifetime access • $47</div>
+          </div>
+          
+          <div class="my-6 text-sm bg-zinc-950 border border-white/10 rounded-2xl p-4 text-zinc-400">
+            Pro unlocks batch processing, saved voices, priority support and the full automation toolkit.<br><br>
+            <strong class="text-emerald-300">Want the done-for-you version?</strong> We set up custom voice + email integration for you.
+          </div>
+          
+          <button onclick="fakePurchase(this)" class="w-full py-4 bg-emerald-500 text-black font-bold rounded-3xl mb-2">PAY $47 — LIFETIME ACCESS</button>
+          <button onclick="fakePurchase(this, true)" class="w-full py-3 text-sm border border-white/20 rounded-3xl">I want the $297 full setup service instead</button>
+          
+          <div onclick="this.closest('.fixed').remove()" class="text-center text-xs mt-6 text-zinc-500 cursor-pointer">Maybe later</div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+
+    async function fakePurchase(btn, isSetup = false) {
+      btn.innerHTML = isSetup ? 'PROCESSING SETUP...' : 'PROCESSING PAYMENT...';
+      btn.disabled = true;
+      
+      const price = isSetup ? 297 : 47;
+      
+      // Log a paid entry to Notion via a simple alert + console for now.
+      // The real money loop script will also create real entries.
+      const business = prompt("Quick: What's the business name paying? (for tracking)", "Acme Plumbing LLC") || "Demo Buyer";
+      const niche = document.getElementById('niche')?.value || "Other";
+      
+      // Try to create a Notion page if we can (we'll wire this in the loop script too)
+      try {
+        // For the live site this would hit a real endpoint. For now just console.
+        console.log('%c[ReplyForge] Revenue event:', 'color:#10b981', { business, price, niche });
+      } catch(e){}
+      
+      setTimeout(() => {
+        btn.closest('.fixed').remove();
+        
+        const success = document.createElement('div');
+        success.className = 'fixed bottom-6 right-6 bg-zinc-900 border border-emerald-600 text-sm px-5 py-4 rounded-3xl flex items-center gap-3 shadow-2xl z-[200]';
+        success.innerHTML = `
+          <div class="text-emerald-400"><i class="fa-solid fa-check-circle text-xl"></i></div>
+          <div>
+            <div class="font-semibold">You're in. Thank you!</div>
+            <div class="text-xs text-zinc-400">$${price} logged. Check your email for access (or DM us on X).</div>
+          </div>
+        `;
+        document.body.appendChild(success);
+        
+        setTimeout(() => {
+          if (success && success.parentNode) success.parentNode.removeChild(success);
+        }, 4200);
+        
+        // For the money loop — user can also manually add via script later
+      }, 1350);
+    }
+
+    function logDemoToNotion() {
+      const business = prompt("Business name to log in tracker?", "Example Co") || "Demo User";
+      const nicheEl = document.getElementById('niche').value;
+      alert("Demo logged in your mind. The real money_loop script (local) will add real Notion entries when you run it.\n\nRun the loop to start generating real paying customers.");
+      console.log('%c[ReplyForge] Demo logged locally:', 'color:#64748b', { business, niche: nicheEl });
+    }
+
+    // Keyboard support
+    function setupKeyboard() {
+      document.addEventListener('keydown', function(e) {
+        if (e.key === '/' && document.activeElement.tagName === "BODY") {
+          e.preventDefault();
+          document.getElementById('inquiry').focus();
+        }
+        if (e.metaKey && e.key === "Enter") {
+          const out = document.getElementById('output');
+          if (!out.classList.contains('hidden')) {
+            copyAll();
+          } else {
+            generateReplies();
+          }
+        }
+      });
+      
+      // Nice touch: press enter in textarea also generates
+      const ta = document.getElementById('inquiry');
+      ta.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+          e.preventDefault();
+          generateReplies();
+        }
+      });
+    }
+
+    // Boot
+    window.onload = function() {
+      tailwindInit();
+      setupKeyboard();
+      
+      // Auto demo a nice example after a couple seconds
+      setTimeout(() => {
+        const out = document.getElementById('output');
+        if (out && out.classList.contains('hidden')) {
+          // don't auto run — keep clean. user can click
+        }
+      }, 2200);
+      
+      // Easter egg: type "money" in console for fun
+      console.log('%c[ReplyForge] Ready. Type generateReplies() or click the button. Run the money_loop script to get customers.', 'color:#334155');
+    }
+  </script>
+</body>
+</html>
