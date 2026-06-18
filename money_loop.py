@@ -31,7 +31,7 @@ LEADS_PER_CYCLE = 4            # How many leads to create each loop iteration
 NICHES = ["Plumber", "Dentist", "Realtor", "HVAC", "Contractor", "Lawyer"]
 
 # Your Notion data source ID (from the DB we created)
-NOTION_DATA_SOURCE = "collection://e3666da5-2e7c-459a-ad9c-4f50a14a8989"
+NOTION_DATA_SOURCE = "e3666da5-2e7c-459a-ad9c-4f50a14a8989"
 
 # Optional: replace with real lead sources later (Google, directories, etc)
 EXAMPLE_COMPANIES = {
